@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EQ-Log | 地震記録＆防災ブログ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="navbar">
+    <div class="logo">EQ-Log</div>
+    <nav>
+      <ul>
+        <li><a href="#about">概要</a></li>
+        <li><a href="#blog">ブログ記事</a></li>
+        <li><a href="#earthquake-info">最新地震情報</a></li>
+      </ul>
+    </nav>
+    <button id="emergency-btn" class="btn-emergency">緊急モード：OFF</button>
+  </header>
+
+  <!-- メインビジュアル（地震のイラストを背景・アイコン風に活用） -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-text">
+        <h1>記憶を継承し、未来を守る</h1>
+        <p>高校生が発信する地震の記憶と防災・減災知恵袋</p>
+      </div>
+      <!-- 画像1: 地震イラスト -->
+      <img src="earthquake.png" alt="地震のイラスト" class="hero-img">
+    </div>
+  </section>
+
+  <!-- 概要（ABOUT）セクション -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-card">
+        <h2>EQ-Log とは？（サイトの概要）</h2>
+        <p class="about-lead">
+          風化しがちな「過去の災害の記憶」をログ（記録）として残し、同世代の若者や地域社会へ日常的な防災意識を広めるためのデジタルメディアです。
+        </p>
+        <div class="about-features">
+          <div class="feature-item">
+            <h3>📖 記憶の継承</h3>
+            <p>被災体験や地域の歴史をブログとしてストックし、次の世代へ教訓をつなぎます。</p>
+          </div>
+          <div class="feature-item">
+            <h3>💡 高校生目線の防災</h3>
+            <p>100均で作る非常用袋や通学中の対応など、若者でもすぐ実践できる防災ノウハウを発信。</p>
+          </div>
+          <div class="feature-item">
+            <h3>🚨 災害時の軽量化UI</h3>
+            <p>災害時には右上ボタンで「緊急モード」へ切替。データ量を削減し、素早い情報取得を支援します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container main-layout">
+    <!-- メインコンテンツ（ブログ一覧：サムネイルとして画像2・3を使用） -->
+    <main class="content-area">
+      <section id="blog">
+        <h2>最新の防災・記録ブログ</h2>
+        
+        <div class="blog-grid">
+          <!-- ブログ 1 -->
+          <article class="blog-card">
+            <!-- 画像2: 防災グッズ -->
+            <img src="bousai-goods.png" alt="非常用持ち出し袋の備え" class="blog-img">
+            <div class="blog-card-content">
+              <span class="category tag-record">【記録】</span>
+              <h3>南海トラフに備える：高校生の避難リュックの中身</h3>
+              <p class="date">2026.09.10</p>
+              <p class="excerpt">実際に100円ショップで買えるグッズだけで、持ち出し用非常バッグを作ってみました。水や非常食の適切な量を検証します...</p>
+              <button class="read-more-btn" data-article="1">記事を読む &rarr;</button>
+            </div>
+          </article>
+
+          <!-- ブログ 2 -->
+          <article class="blog-card">
+            <!-- 画像3: 備蓄倉庫 -->
+            <img src="stock.png" alt="家庭・学校での備蓄" class="blog-img">
+            <div class="blog-card-content">
+              <span class="category tag-knowledge">【知恵】</span>
+              <h3>家庭や学校での「ローリングストック」の実践</h3>
+              <p class="date">2026.09.05</p>
+              <p class="excerpt">日常的に使っている水や食料を少し多めに買い置きしておく備蓄法「ローリングストック」を高校生の視点から紹介します...</p>
+              <button class="read-more-btn" data-article="2">記事を読む &rarr;</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- サイドバー（地震データ） -->
+    <aside class="sidebar">
+      <section id="earthquake-info" class="eq-widget">
+        <h2>国内の最新地震情報</h2>
+        <p class="api-status">気象庁データ取得中...</p>
+        <ul id="eq-list" class="eq-list">
+          <!-- JSで自動挿入 -->
+        </ul>
+      </section>
+    </aside>
+  </div>
+
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2026 EQ-Log Project - 高校生防災WEBコンテスト応募作品</p>
+  </footer>
+
+  <!-- 記事ポップアップ（モーダル）表示エリア -->
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close">&times;</button>
+      <span id="modal-category" class="category"></span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-date" class="date"></p>
+      <hr>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
